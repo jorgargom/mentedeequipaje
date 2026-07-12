@@ -4,27 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mente de Equipaje</title>
-   <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    html, body {
-        width: 100%;
-        height: 100%; /* Fallback para navegadores antiguos */
-        height: 100dvh; /* Esta es la clave para iPhone: altura dinámica */
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        background-image: url('background.png');
-        background-size: contain;          
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
-</style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            height: 100dvh; /* Altura dinámica para iPhone */
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            /* Imagen por defecto (Escritorio) */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* Regla especial para móviles (pantallas de hasta 768px de ancho) */
+        @media (max-width: 768px) {
+            body {
+                background-image: url('background-movil.png');
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+    </style>
 </head>
 <body>
-    </body>
+    <!-- Tu contenido irá aquí -->
+</body>
 </html>
