@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mente de Equipaje | Próximamente</title>
+    <title>Mente de Equipaje | Muy pronto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,41 +14,56 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #1A1A1A; 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #EAEAEA;
+            /* Fondo con degradado energético */
+            background: linear-gradient(135deg, #4F46E5, #EC4899);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #FFFFFF;
             text-align: center;
             padding: 20px;
         }
 
-        .container { max-width: 600px; }
+        .container { 
+            max-width: 600px; 
+            background: rgba(255, 255, 255, 0.1); /* Efecto cristal */
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #D4A373;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
         }
 
-        p { font-size: 1.2rem; color: #B0B0B0; margin-bottom: 30px; line-height: 1.6; }
+        p { 
+            font-size: 1.3rem; 
+            margin-bottom: 40px; 
+            line-height: 1.5;
+            opacity: 0.9;
+        }
 
-        .social-links { display: flex; justify-content: center; gap: 20px; }
+        .social-links { display: flex; justify-content: center; gap: 30px; }
 
         .social-links a {
-            color: #EAEAEA;
-            font-size: 1.8rem;
-            transition: color 0.3s ease;
+            color: #FFF;
+            font-size: 2rem;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
-        .social-links a:hover { color: #D4A373; }
+        .social-links a:hover { 
+            transform: scale(1.2);
+            color: #FFD700; /* Un toque de dorado al pasar el ratón */
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Mente de Equipaje</h1>
-        <p>Reflexiones, historias y un poco de todo lo que cargamos en nuestra mente. Estamos dando los últimos detalles.<br><strong>Muy pronto disponible.</strong></p>
+        <p>Un espacio para soltar lo que cargamos y conectar con lo que realmente importa. <strong>Estamos afinando los micrófonos.</strong></p>
 
         <div class="social-links">
             <a href="https://instagram.com/mentedeequipaje" target="_blank"><i class="fab fa-instagram"></i></a>
