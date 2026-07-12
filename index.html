@@ -10,27 +10,22 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body, html {
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            /* Quitamos overflow: hidden para permitir el scroll si fuera necesario */
             background-color: #000;
-        }
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            
+            /* Aplicamos el fondo directamente al body */
             background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
+            background-size: cover;          /* La imagen se estira/encoge para cubrir todo */
+            background-position: center;     /* Siempre centrada */
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed;    /* El fondo se queda fijo al hacer scroll */
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
-</body>
+    </body>
 </html>
