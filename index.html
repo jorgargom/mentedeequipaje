@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Técnico Principal -->
     <title>Mente de Equipaje | El Podcast</title>
+    <meta name="description" content="Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar. Un podcast sobre procesos personales y cambios de etapa.">
+    <link rel="canonical" href="https://mentedeequipaje.com/">
+    
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mentedeequipaje.com/">
+    <meta property="og:title" content="Mente de Equipaje | El Podcast">
+    <meta property="og:description" content="Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar.">
+    <meta property="og:image" content="https://mentedeequipaje.com/og-image.jpg">
+
+    <!-- Datos Estructurados Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PodcastSeries",
+      "name": "Mente de Equipaje",
+      "url": "https://mentedeequipaje.com/",
+      "description": "Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar.",
+      "webFeed": "TU_URL_DE_RSS_AQUÍ"
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -18,7 +43,7 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             color: #FFFFFF;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
         }
 
         .container { max-width: 650px; width: 100%; }
@@ -60,7 +85,7 @@
             margin-bottom: 35px;
         }
 
-        /* --- ESTILO DEL BOTÓN TYPEFORM --- */
+        /* --- BOTÓN TYPEFORM --- */
         .notify-button {
             display: inline-block;
             background: #2D2D2D;
@@ -72,11 +97,47 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
 
         .notify-button:hover {
             transform: scale(1.05);
             background: #000;
+        }
+
+        /* --- CONTENEDOR DE EPISODIOS AUTOMÁTICOS --- */
+        #episodes-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .episode-card {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #FFF;
+        }
+
+        .episode-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
         }
 
         .social-links { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
@@ -99,19 +160,75 @@
             <span class="line-bold">El podcast que le pone nombre a lo que pensamos.</span>
         </div>
 
-        <div class="status">Preparando el equipaje — Próximamente</div>
+        <div class="status">Últimos Episodios</div>
 
-        <!-- Botón que abre tu Typeform -->
-        <a href="https://form.typeform.com/to/nCekVUc0" target="_blank" class="notify-button">
-            Avísame al despegue
-        </a>
+        <!-- Formulario de Typeform -->
+        <div>
+            <a href="https://form.typeform.com/to/nCekVUc0" target="_blank" class="notify-button">
+                Únete a la lista de correo
+            </a>
+        </div>
+
+        <!-- Zona donde aparecen los episodios del RSS -->
+        <main id="episodes-container">
+            <div class="episode-card" style="text-align: center;">
+                <p class="episode-desc">Cargando episodios...</p>
+            </div>
+        </main>
 
         <div class="social-links">
-            <a href="https://instagram.com/mentedeequipaje" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@mentedeequipaje" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="mailto:mentedeequipaje@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://instagram.com/mentedeequipaje" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@mentedeequipaje" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:mentedeequipaje@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
+
+    <!-- Script de Automatización del Feed RSS -->
+    <script>
+        async function loadPodcastFeed() {
+            // Reemplaza esta URL por la tuya cuando la tengas
+            const rssUrl = 'TU_URL_DE_RSS_AQUÍ'; 
+            const container = document.getElementById('episodes-container');
+
+            try {
+                const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
+                const data = await response.json();
+
+                if (data.status === 'ok' && data.items.length > 0) {
+                    container.innerHTML = '';
+                    data.items.slice(0, 5).forEach(item => { // Muestra los 5 más recientes
+                        const card = document.createElement('article');
+                        card.className = 'episode-card';
+                        
+                        // Limpia etiquetas HTML de la descripción
+                        const cleanDesc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 140);
+                        
+                        card.innerHTML = `
+                            <h2 class="episode-title">${item.title}</h2>
+                            <p class="episode-desc">${cleanDesc}...</p>
+                            <audio controls preload="none">
+                                <source src="${item.enclosure.link}" type="audio/mpeg">
+                                Tu navegador no soporta este reproductor.
+                            </audio>
+                        `;
+                        container.appendChild(card);
+                    });
+                } else {
+                    container.innerHTML = `
+                        <div class="episode-card" style="text-align: center;">
+                            <p class="episode-desc">Próximamente el primer episodio disponible aquí.</p>
+                        </div>`;
+                }
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="episode-card" style="text-align: center;">
+                        <p class="episode-desc">Próximamente el primer episodio disponible aquí.</p>
+                    </div>`;
+            }
+        }
+
+        loadPodcastFeed();
+    </script>
 
 </body>
 </html>
