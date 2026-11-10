@@ -123,3 +123,220 @@ h1 em { color: #8d765f; font-weight: 400; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+
+/* Identidad visual: una maleta llena de historias */
+:root {
+  --leather: #76543b;
+  --leather-dark: #503827;
+  --paper-aged: #e6d7bd;
+  --ticket: #f7f0e3;
+  --stamp: #9b6048;
+}
+.hero-art {
+  aspect-ratio: .91;
+  max-height: 455px;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(255,255,255,.45), transparent 62%),
+    #d8cbb8;
+  overflow: hidden;
+}
+.hero-art::before {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(80,56,39,.035) 35px),
+    linear-gradient(135deg, rgba(255,255,255,.2), transparent 55%);
+}
+.art-caption {
+  position: absolute;
+  z-index: 4;
+  color: #594634;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+}
+.caption-top { top: 8%; left: 8%; }
+.caption-bottom { right: 7%; bottom: 12%; }
+.art-index {
+  bottom: 20px;
+  left: 22px;
+  color: rgba(55,43,32,.72);
+}
+.suitcase-scene {
+  position: absolute;
+  width: 76%;
+  height: 60%;
+  left: 12%;
+  top: 23%;
+  filter: drop-shadow(0 18px 13px rgba(58,39,25,.2));
+}
+.suitcase-handle {
+  position: absolute;
+  z-index: 1;
+  width: 27%;
+  height: 19%;
+  top: -8%;
+  left: 36.5%;
+  border: 9px solid #68482f;
+  border-bottom: 0;
+  border-radius: 13px 13px 0 0;
+}
+.suitcase-lid {
+  position: absolute;
+  left: 2%;
+  top: 0;
+  width: 96%;
+  height: 43%;
+  overflow: hidden;
+  border: 7px solid #68482f;
+  border-radius: 18px 18px 8px 8px;
+  background: linear-gradient(145deg, #a8794f, #795337 70%);
+  transform: perspective(400px) rotateX(-9deg);
+  box-shadow: inset 0 0 0 2px rgba(226,190,145,.28), inset 0 -12px 20px rgba(43,27,17,.12);
+}
+.lining-line {
+  position: relative;
+  display: block;
+  height: 1px;
+  margin: 13px 12px;
+  background: rgba(238,213,178,.32);
+}
+.suitcase-base {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 65%;
+  border: 8px solid #68482f;
+  border-radius: 9px 9px 22px 22px;
+  background: linear-gradient(155deg, #a9784e 0%, #875d3d 55%, #68472f 100%);
+  box-shadow: inset 0 0 0 2px rgba(232,196,151,.3), inset 0 -16px 25px rgba(46,29,17,.18);
+}
+.suitcase-seam {
+  position: absolute;
+  inset: 9px;
+  border: 1px dashed rgba(238,211,176,.5);
+  border-radius: 5px 5px 14px 14px;
+}
+.suitcase-lock {
+  position: absolute;
+  z-index: 5;
+  width: 24px;
+  height: 30px;
+  top: -8px;
+  left: calc(50% - 12px);
+  border-radius: 4px 4px 8px 8px;
+  background: linear-gradient(90deg, #b99a69, #e1c99b, #9a794e);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+.suitcase-corner {
+  position: absolute;
+  bottom: -2px;
+  width: 23px;
+  height: 23px;
+  border: 3px solid #c39a68;
+  border-top: 0;
+}
+.corner-left { left: 4px; border-left: 0; border-radius: 0 0 0 12px; }
+.corner-right { right: 4px; border-right: 0; border-radius: 0 0 12px 0; }
+.memory-passport, .memory-ticket, .memory-photo, .memory-letter, .memory-tag {
+  position: absolute;
+  z-index: 3;
+  box-shadow: 0 5px 12px rgba(36,25,17,.2);
+}
+.memory-passport {
+  top: 13%;
+  left: 13%;
+  width: 32%;
+  height: 48%;
+  padding: 12px 8px;
+  transform: rotate(-12deg);
+  border: 1px solid #b49a72;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #49604e, #293f35);
+  color: #e5d2a9;
+  text-align: center;
+}
+.passport-mark { display: block; font-size: clamp(6px, .8vw, 9px); letter-spacing: .16em; }
+.passport-globe { display: block; margin: 10px 0 7px; font-size: clamp(23px, 3vw, 34px); }
+.passport-country { font-size: clamp(5px, .7vw, 8px); letter-spacing: .12em; }
+.memory-ticket {
+  top: 5%;
+  right: 9%;
+  width: 43%;
+  height: 27%;
+  padding: 9px 10px;
+  transform: rotate(8deg);
+  background: #f4e8d2;
+  border: 1px dashed #ad8d68;
+  color: #5a4a39;
+}
+.memory-ticket span, .memory-ticket small { display: block; font-size: clamp(5px, .7vw, 8px); letter-spacing: .12em; }
+.memory-ticket strong { display: block; margin: 5px 0; font-family: var(--serif); font-size: clamp(12px, 1.5vw, 19px); font-weight: 600; }
+.memory-photo {
+  left: 42%;
+  top: 32%;
+  width: 26%;
+  height: 33%;
+  padding: 6px 6px 17px;
+  transform: rotate(7deg);
+  background: #f2eadb;
+}
+.memory-photo span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(160deg, transparent 45%, rgba(56,65,47,.6) 46% 63%, transparent 64%),
+    linear-gradient(25deg, #a5a18a, #d1b994 48%, #75816d);
+}
+.memory-letter {
+  right: 11%;
+  bottom: 12%;
+  width: 38%;
+  height: 35%;
+  padding: 10px;
+  transform: rotate(10deg);
+  background: #eee1ca;
+  color: #806b53;
+}
+.memory-letter span { display: block; margin-bottom: 9px; font-family: var(--serif); font-style: italic; font-size: clamp(8px, 1vw, 12px); }
+.memory-letter i { display: block; height: 1px; margin: 6px 0; background: rgba(91,71,49,.3); }
+.memory-tag {
+  left: 10%;
+  bottom: 7%;
+  width: 25%;
+  height: 23%;
+  padding: 7px;
+  transform: rotate(-7deg);
+  background: #d8c39e;
+  color: #624c35;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+}
+.memory-tag span, .memory-tag strong { display: block; font-size: clamp(6px, .8vw, 9px); letter-spacing: .12em; }
+.memory-tag strong { margin-top: 5px; font-family: var(--serif); font-size: clamp(9px, 1.1vw, 13px); }
+.feature-panel {
+  background:
+    linear-gradient(110deg, rgba(118,84,59,.10), transparent 55%),
+    #e2d6c5;
+}
+.feature-panel::after {
+  content: "POSTALES · RECUERDOS · EXPERIENCIAS";
+  position: absolute;
+  right: 4%;
+  bottom: 24px;
+  color: rgba(83,61,43,.55);
+  font-size: 8px;
+  letter-spacing: .16em;
+}
+.conversation-section { background: #3b342c; }
+.site-footer { background: #e5d9c8; }
+.footer-wordmark em { color: var(--leather); }
+@media (max-width: 760px) {
+  .hero-art { aspect-ratio: 1.08; max-height: 390px; }
+  .suitcase-scene { width: 82%; left: 9%; top: 25%; height: 58%; }
+  .memory-passport { padding: 8px 5px; }
+  .memory-ticket { padding: 6px; }
+  .memory-letter { padding: 7px; }
+  .feature-panel::after { right: 30px; bottom: 18px; font-size: 7px; }
+}
