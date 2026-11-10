@@ -1,0 +1,19 @@
+{
+  "name": "Mente de Equipaje",
+  "short_name": "Mente de Equipaje",
+  "description": "Historias, reflexiones y conversaciones sobre cambios de vida y experiencias humanas.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f2eee6",
+  "theme_color": "#76543b",
+  "icons": [
+    {
+      "src": "/assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
