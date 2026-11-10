@@ -1,234 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Técnico Principal -->
-    <title>Mente de Equipaje | El Podcast</title>
-    <meta name="description" content="Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar. Un podcast sobre procesos personales y cambios de etapa.">
-    <link rel="canonical" href="https://mentedeequipaje.com/">
-    
-    <!-- Open Graph / Redes Sociales -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mentedeequipaje.com/">
-    <meta property="og:title" content="Mente de Equipaje | El Podcast">
-    <meta property="og:description" content="Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar.">
-    <meta property="og:image" content="https://mentedeequipaje.com/og-image.jpg">
-
-    <!-- Datos Estructurados Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "PodcastSeries",
-      "name": "Mente de Equipaje",
-      "url": "https://mentedeequipaje.com/",
-      "description": "Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar.",
-      "webFeed": "TU_URL_DE_RSS_AQUÍ"
-    }
-    </script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body, html {
-            width: 100%;
-            min-height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #FF6B6B, #FFD93D);
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .container { max-width: 650px; width: 100%; }
-
-        .podcast-tag {
-            display: inline-block;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            background: rgba(0, 0, 0, 0.15);
-            padding: 6px 18px;
-            border-radius: 50px;
-            margin-bottom: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            letter-spacing: -1.5px;
-            line-height: 1.05;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-
-        .quote-block { font-size: 1.4rem; font-weight: 300; line-height: 1.6; margin-bottom: 35px; }
-        .line { display: block; margin-bottom: 10px; }
-        .line-bold { display: block; font-weight: 600; font-size: 1.5rem; }
-
-        .status {
-            display: inline-block;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 8px 20px;
-            border: 1px solid rgba(255,255,255,0.6);
-            border-radius: 50px;
-            margin-bottom: 35px;
-        }
-
-        /* --- BOTÓN TYPEFORM --- */
-        .notify-button {
-            display: inline-block;
-            background: #2D2D2D;
-            color: #FFF;
-            text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .notify-button:hover {
-            transform: scale(1.05);
-            background: #000;
-        }
-
-        /* --- CONTENEDOR DE EPISODIOS AUTOMÁTICOS --- */
-        #episodes-container {
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .episode-card {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .episode-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #FFF;
-        }
-
-        .episode-desc {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        audio {
-            width: 100%;
-            border-radius: 10px;
-            outline: none;
-        }
-
-        .social-links { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
-        .social-links a { color: #FFF; font-size: 1.8rem; transition: 0.3s; }
-        .social-links a:hover { transform: translateY(-4px); color: #2D2D2D; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.6rem; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#252722">
+  <title>Mente de Equipaje | Historias, cambios y vida real</title>
+  <meta name="description" content="Un espacio para pensar sobre los cambios de etapa, la adaptación, las decisiones y todo lo que llevamos con nosotros.">
+  <link rel="canonical" href="https://mentedeequipaje.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mentedeequipaje.com/">
+  <meta property="og:title" content="Mente de Equipaje">
+  <meta property="og:description" content="Historias, cambios y todo lo que llevamos dentro.">
+  <meta property="og:site_name" content="Mente de Equipaje">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Mente de Equipaje",
+    "url": "https://mentedeequipaje.com/",
+    "description": "Un espacio de historias, reflexiones y conversaciones sobre los cambios de etapa y la vida real.",
+    "inLanguage": "es"
+  }
+  </script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <div class="container">
-        <div class="podcast-tag">El Podcast</div>
-        <h1>Mente de Equipaje</h1>
-        
-        <div class="quote-block">
-            <span class="line">Historias, reflexiones y todo eso que decidimos cargar (o soltar) al caminar.</span>
-            <span class="line-bold">El podcast que le pone nombre a lo que pensamos.</span>
-        </div>
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="Mente de Equipaje, inicio">
+      <span class="wordmark-mark" aria-hidden="true">me.</span>
+      <span class="wordmark-name">Mente de<br>Equipaje</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Abrir menú</span>
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+      <a href="#episodios">Episodios</a>
+      <a href="#reflexiones">Reflexiones</a>
+      <a href="#conversaciones">Conversaciones</a>
+      <a href="#proyecto">El proyecto</a>
+    </nav>
+  </header>
 
-        <div class="status">Últimos Episodios</div>
+  <main id="contenido">
+    <section class="hero section-shell" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Un espacio para pensar en voz alta</p>
+        <h1>Hay cosas que llevamos con nosotros. <em>Otras nos cambian por el camino.</em></h1>
+        <p class="hero-intro">Historias, reflexiones y conversaciones sobre los cambios de etapa, la adaptación y todo eso que nos pasa mientras intentamos encontrar nuestro sitio.</p>
+        <a class="text-link" href="#proyecto">Conoce el proyecto <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Composición gráfica abstracta que representa el equipaje y el movimiento" role="img">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-sun"></div>
+        <div class="art-path"></div>
+        <span class="art-note note-top">lo que dejamos</span>
+        <span class="art-note note-bottom">lo que nos llevamos</span>
+        <span class="art-index">01 / seguir pensando</span>
+      </div>
+      <div class="hero-bottom">
+        <span>Historias reales. Preguntas abiertas.</span>
+        <a href="#explorar" aria-label="Bajar para explorar">↓</a>
+      </div>
+    </section>
 
-        <!-- Formulario de Typeform -->
+    <section class="intro-band" id="explorar">
+      <div class="section-shell intro-grid">
+        <p class="eyebrow">La idea</p>
+        <p class="intro-statement">A veces la vida cambia por fuera y tardamos un poco más en entender qué está pasando por dentro.</p>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="episodios">
+      <div class="section-heading">
         <div>
-            <a href="https://form.typeform.com/to/nCekVUc0" target="_blank" class="notify-button">
-                Únete a la lista de correo
-            </a>
+          <p class="eyebrow">Escuchar</p>
+          <h2>El podcast</h2>
         </div>
-
-        <!-- Zona donde aparecen los episodios del RSS -->
-        <main id="episodes-container">
-            <div class="episode-card" style="text-align: center;">
-                <p class="episode-desc">Cargando episodios...</p>
-            </div>
-        </main>
-
-        <div class="social-links">
-            <a href="https://instagram.com/mentedeequipaje" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@mentedeequipaje" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="mailto:mentedeequipaje@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <span class="section-number">01</span>
+      </div>
+      <div class="feature-panel">
+        <div class="feature-index">PRÓXIMAMENTE · PRIMERA TEMPORADA</div>
+        <div class="feature-content">
+          <h3>Conversaciones para poner en palabras lo que nos pasa.</h3>
+          <p>Un espacio para escuchar experiencias, hacerse preguntas y mirar los cambios desde distintos puntos de vista. Los primeros episodios están en preparación.</p>
         </div>
+        <div class="feature-mark" aria-hidden="true">me<span>.</span></div>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="reflexiones">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Leer</p>
+          <h2>Reflexiones</h2>
+        </div>
+        <span class="section-number">02</span>
+      </div>
+      <div class="quiet-grid">
+        <p class="large-note">Ideas que aparecen en mitad del camino y merecen un rato de atención.</p>
+        <div class="quiet-note">
+          <span class="note-label">CUADERNO ABIERTO</span>
+          <p>Este espacio irá tomando forma con textos sobre aprendizaje, identidad, adaptación y cambios cotidianos.</p>
+          <span class="note-status">Los primeros textos, en preparación.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="conversation-section" id="conversaciones">
+      <div class="section-shell conversation-grid">
+        <div>
+          <p class="eyebrow eyebrow-light">Compartir</p>
+          <h2>Las historias también se construyen escuchando a los demás.</h2>
+        </div>
+        <div class="conversation-copy">
+          <p>Conversaciones abiertas con personas que han cambiado de rumbo, han empezado de nuevo o trabajan acompañando a otros en sus propios procesos.</p>
+          <p>Sin recetas universales. Con tiempo para escuchar y espacio para pensar.</p>
+          <span class="note-status light-status">Nuevos encuentros, próximamente.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section-shell" id="proyecto">
+      <div class="about-label">
+        <p class="eyebrow">Sobre Mente de Equipaje</p>
+        <span class="section-number">03</span>
+      </div>
+      <div class="about-copy">
+        <h2>No hace falta tener todas las respuestas para empezar una conversación.</h2>
+        <p>Mente de Equipaje nace de la curiosidad por entender cómo nos afectan los cambios: mudarse, aprender, trabajar, empezar de nuevo o descubrir que ya no somos exactamente quienes éramos.</p>
+        <p>Es un proyecto independiente, en construcción, que reúne voces y experiencias alrededor de una misma inquietud: qué hacemos con todo lo que la vida nos va dejando.</p>
+        <a class="text-link" href="mailto:mentedeequipaje@gmail.com">Escribe al proyecto <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top section-shell">
+      <a class="footer-wordmark" href="#inicio">Mente de<br><em>Equipaje.</em></a>
+      <div class="footer-links">
+        <a href="https://instagram.com/mentedeequipaje" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a href="https://youtube.com/@mentedeequipaje" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+        <a href="mailto:mentedeequipaje@gmail.com">Contacto ↗</a>
+      </div>
     </div>
-
-    <!-- Script de Automatización del Feed RSS -->
-    <script>
-        async function loadPodcastFeed() {
-            // Reemplaza esta URL por la tuya cuando la tengas
-            const rssUrl = 'TU_URL_DE_RSS_AQUÍ'; 
-            const container = document.getElementById('episodes-container');
-
-            try {
-                const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`);
-                const data = await response.json();
-
-                if (data.status === 'ok' && data.items.length > 0) {
-                    container.innerHTML = '';
-                    data.items.slice(0, 5).forEach(item => { // Muestra los 5 más recientes
-                        const card = document.createElement('article');
-                        card.className = 'episode-card';
-                        
-                        // Limpia etiquetas HTML de la descripción
-                        const cleanDesc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 140);
-                        
-                        card.innerHTML = `
-                            <h2 class="episode-title">${item.title}</h2>
-                            <p class="episode-desc">${cleanDesc}...</p>
-                            <audio controls preload="none">
-                                <source src="${item.enclosure.link}" type="audio/mpeg">
-                                Tu navegador no soporta este reproductor.
-                            </audio>
-                        `;
-                        container.appendChild(card);
-                    });
-                } else {
-                    container.innerHTML = `
-                        <div class="episode-card" style="text-align: center;">
-                            <p class="episode-desc">Próximamente el primer episodio disponible aquí.</p>
-                        </div>`;
-                }
-            } catch (error) {
-                container.innerHTML = `
-                    <div class="episode-card" style="text-align: center;">
-                        <p class="episode-desc">Próximamente el primer episodio disponible aquí.</p>
-                    </div>`;
-            }
-        }
-
-        loadPodcastFeed();
-    </script>
-
+    <div class="footer-bottom section-shell">
+      <span>Un proyecto en construcción.</span>
+      <span>© <span id="year"></span> Mente de Equipaje</span>
+    </div>
+  </footer>
 </body>
 </html>
