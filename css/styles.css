@@ -61,7 +61,7 @@ h1 em { color: #8d765f; font-weight: 400; }
 .section-heading h2, .about-copy h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; font-size: clamp(38px, 4.5vw, 56px); margin: 0 0 27px; }
 .section-number { font-size: 11px; color: #76543b; letter-spacing: .12em; padding-top: 8px; }
 .feature-panel { background: #dcd3c5; min-height: 290px; padding: 38px 5%; display: grid; grid-template-columns: .75fr 1.5fr .5fr; align-items: center; gap: 30px; position: relative; overflow: hidden; }
-.feature-index, .note-label { align-self: start; font-size: 10px; font-weight: 700; letter-spacing: .17em; color: #777066; }
+.feature-index, .note-label { align-self: start; font-size: 10px; font-weight: 700; letter-spacing: .17em; color: #5d554b; }
 .feature-content { max-width: 500px; position: relative; z-index: 1; }
 .feature-content h3 { font-family: var(--serif); font-size: clamp(28px, 3vw, 39px); line-height: 1.2; font-weight: 500; margin-bottom: 16px; }
 .feature-content p, .quiet-note p, .conversation-copy p, .about-copy p { font-size: 13px; line-height: 1.9; color: #62615a; }
