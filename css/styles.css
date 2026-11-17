@@ -524,3 +524,52 @@ body.has-motion [data-reveal].is-visible {
   }
   .site-nav .nav-project-link small { max-width: 260px; }
 }
+
+
+/* Separación clara del proyecto relacionado en el menú */
+.site-nav {
+  align-items: center;
+  column-gap: clamp(18px, 2.5vw, 34px);
+}
+.site-nav .nav-project-link {
+  flex: 0 0 auto;
+  min-width: 185px;
+  margin-left: 4px;
+  padding: 9px 0 9px 20px;
+  border-left: 1px solid rgba(37, 39, 34, .28);
+  gap: 5px;
+  line-height: 1.35;
+}
+.site-nav .nav-project-link::after {
+  display: none;
+}
+.site-nav .nav-project-link span {
+  display: block;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.site-nav .nav-project-link small {
+  display: block;
+  max-width: 185px;
+  white-space: normal;
+  line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .site-nav {
+    align-items: stretch;
+    row-gap: 5px;
+  }
+  .site-nav .nav-project-link {
+    min-width: 0;
+    margin: 12px 0 0;
+    padding: 14px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(37, 39, 34, .28);
+  }
+  .site-nav .nav-project-link span {
+    white-space: normal;
+  }
+  .site-nav .nav-project-link small {
+    max-width: 260px;
+  }
+}
