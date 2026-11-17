@@ -492,3 +492,35 @@ body.has-motion [data-reveal].is-visible {
     margin-bottom: 0;
   }
 }
+
+
+/* Enlace a proyecto relacionado en la navegación */
+.site-nav .nav-project-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: clamp(8px, 1.8vw, 24px);
+  padding: 8px 0 8px 18px;
+  border-left: 1px solid var(--line);
+  text-decoration: none;
+}
+.site-nav .nav-project-link span {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--ink);
+}
+.site-nav .nav-project-link small {
+  max-width: 190px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .site-nav .nav-project-link {
+    margin: 12px 0 0;
+    padding: 14px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .site-nav .nav-project-link small { max-width: 260px; }
+}
