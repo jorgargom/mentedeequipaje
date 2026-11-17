@@ -12,8 +12,8 @@
     try { saved = localStorage.getItem("mente-equipaje-language"); } catch (_) {}
     const languages = navigator.languages?.length ? navigator.languages : [navigator.language || "es"];
     const detected = languages.map((x) => x.toLowerCase());
-    const browserLanguage = detected.some((x) => x.startsWith("de")) ? "de"
-      : detected.some((x) => x.startsWith("en")) ? "en" : "es";
+    const preferredBrowserLanguage = detected.find((x) => ["es", "de", "en"].some((code) => x.startsWith(code)));
+    const browserLanguage = preferredBrowserLanguage ? preferredBrowserLanguage.slice(0, 2) : "es";
     const preferred = ["es", "de", "en"].includes(saved) ? saved : browserLanguage;
     if (preferred === "de") { window.location.replace("/de/"); return; }
     if (preferred === "en") { window.location.replace("/en/"); return; }
