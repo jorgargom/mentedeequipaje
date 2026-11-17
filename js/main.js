@@ -1,5 +1,24 @@
 /* Mente de Equipaje: navegación accesible y animaciones discretas */
 (() => {
+
+  // Remember explicit language choices and detect the browser language on the neutral entry URL.
+  document.querySelectorAll("[data-language-choice]").forEach((link) => {
+    link.addEventListener("click", () => {
+      try { localStorage.setItem("mente-equipaje-language", link.dataset.languageChoice); } catch (_) {}
+    });
+  });
+  if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+    let saved = null;
+    try { saved = localStorage.getItem("mente-equipaje-language"); } catch (_) {}
+    const languages = navigator.languages?.length ? navigator.languages : [navigator.language || "es"];
+    const detected = languages.map((x) => x.toLowerCase());
+    const browserLanguage = detected.some((x) => x.startsWith("de")) ? "de"
+      : detected.some((x) => x.startsWith("en")) ? "en" : "es";
+    const preferred = ["es", "de", "en"].includes(saved) ? saved : browserLanguage;
+    if (preferred === "de") { window.location.replace("/de/"); return; }
+    if (preferred === "en") { window.location.replace("/en/"); return; }
+  }
+
   const menuButton = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector("#site-nav");
   const menuLabel = menuButton?.querySelector(".sr-only");
