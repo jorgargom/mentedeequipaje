@@ -1,24 +1,7 @@
 /* Mente de Equipaje: navegación accesible y animaciones discretas */
 (() => {
 
-  // Remember explicit language choices and detect the browser language on the neutral entry URL.
-  document.querySelectorAll("[data-language-choice]").forEach((link) => {
-    link.addEventListener("click", () => {
-      try { localStorage.setItem("mente-equipaje-language", link.dataset.languageChoice); } catch (_) {}
-    });
-  });
-  if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-    let saved = null;
-    try { saved = localStorage.getItem("mente-equipaje-language"); } catch (_) {}
-    const languages = navigator.languages?.length ? navigator.languages : [navigator.language || "es"];
-    const detected = languages.map((x) => x.toLowerCase());
-    const preferredBrowserLanguage = detected.find((x) => ["es", "de", "en"].some((code) => x.startsWith(code)));
-    const browserLanguage = preferredBrowserLanguage ? preferredBrowserLanguage.slice(0, 2) : "es";
-    const preferred = ["es", "de", "en"].includes(saved) ? saved : browserLanguage;
-    if (preferred === "de") { window.location.replace("/de/"); return; }
-    if (preferred === "en") { window.location.replace("/en/"); return; }
-  }
-
+  // Language navigation is explicit: visitors choose a version using the visible language switch.
   const pageLanguage = (document.documentElement.lang || "es").toLowerCase();
   const isGerman = pageLanguage.startsWith("de");
   const isEnglish = pageLanguage.startsWith("en");
