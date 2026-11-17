@@ -1,20 +1,56 @@
-const menuButton = document.querySelector(".menu-toggle");
-const siteNav = document.querySelector("#site-nav");
+/* Mente de Equipaje: navegación accesible y animaciones discretas */
+(() => {
+  const menuButton = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector("#site-nav");
+  const menuLabel = menuButton?.querySelector(".sr-only");
 
-if (menuButton && siteNav) {
-  menuButton.addEventListener("click", () => {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-    menuButton.setAttribute("aria-expanded", String(!isOpen));
-    siteNav.classList.toggle("is-open", !isOpen);
-  });
+  if (menuButton && siteNav) {
+    const setMenuOpen = (open) => {
+      menuButton.setAttribute("aria-expanded", String(open));
+      siteNav.classList.toggle("is-open", open);
+      if (menuLabel) menuLabel.textContent = open ? "Cerrar menú" : "Abrir menú";
+    };
 
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menuButton.setAttribute("aria-expanded", "false");
-      siteNav.classList.remove("is-open");
+    menuButton.addEventListener("click", () => {
+      setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true");
     });
-  });
-}
 
-const year = document.querySelector("#year");
-if (year) year.textContent = new Date().getFullYear();
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+        setMenuOpen(false);
+        menuButton.focus();
+      }
+    });
+  }
+
+  const year = document.querySelector("#year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  const revealItems = document.querySelectorAll(
+    ".hero-copy, .hero-art, .intro-grid, .content-section, .conversation-grid, .about-section"
+  );
+  if (!revealItems.length) return;
+
+  document.body.classList.add("has-motion");
+  revealItems.forEach((item, index) => {
+    item.dataset.reveal = "";
+    item.style.setProperty("--reveal-delay", `${(index % 3) * 90}ms`);
+  });
+
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      currentObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  revealItems.forEach((item) => observer.observe(item));
+})();
