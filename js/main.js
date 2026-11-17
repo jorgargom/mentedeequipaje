@@ -19,6 +19,12 @@
     if (preferred === "en") { window.location.replace("/en/"); return; }
   }
 
+  const pageLanguage = (document.documentElement.lang || "es").toLowerCase();
+  const isGerman = pageLanguage.startsWith("de");
+  const isEnglish = pageLanguage.startsWith("en");
+  const openLabel = isGerman ? "Menü öffnen" : isEnglish ? "Open menu" : "Abrir menú";
+  const closeLabel = isGerman ? "Menü schließen" : isEnglish ? "Close menu" : "Cerrar menú";
+
   const menuButton = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector("#site-nav");
   const menuLabel = menuButton?.querySelector(".sr-only");
@@ -27,7 +33,7 @@
     const setMenuOpen = (open) => {
       menuButton.setAttribute("aria-expanded", String(open));
       siteNav.classList.toggle("is-open", open);
-      if (menuLabel) menuLabel.textContent = open ? "Cerrar menú" : "Abrir menú";
+      if (menuLabel) menuLabel.textContent = open ? closeLabel : openLabel;
     };
 
     menuButton.addEventListener("click", () => {
