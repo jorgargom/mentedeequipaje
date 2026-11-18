@@ -602,6 +602,7 @@ body.has-motion [data-reveal].is-visible {
   border: 1px solid var(--line);
   white-space: nowrap;
 }
+.language-switch a,
 .language-switch span {
   display: inline-flex;
   align-items: center;
@@ -612,7 +613,9 @@ body.has-motion [data-reveal].is-visible {
   color: var(--muted);
   font-size: 11px;
   line-height: 1;
+  text-decoration: none;
 }
+.language-switch a:hover,
 .language-switch [aria-current="page"] {
   background: var(--ink);
   color: var(--paper);
